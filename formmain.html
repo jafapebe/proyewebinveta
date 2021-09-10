@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/d2598eec4b.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#producto').click(function(){
+               $("#con-form").load("formproducto.html");
+                                         });
+
+            $('#Django').click(function(){
+               $("#contenido").load("pagian2.html");
+                                         });
+
+            $('#Jython').click(function(){
+               $("#contenido").load("pagina2.html");
+                                         });
+                                    });
+    </script>
+</head>
+
+<body>
+    <div class="barra-titulo"><i class="fa fa-file-invoice"></i> <samp>Sof-Inventario</samp> </div> 
+    <div class="contenedor">
+        <div class="bar-menu">
+           <div class="barmenu-conte">
+              <ul>
+                  <li><a id="producto" href="#" class="acitve"><i class="fa fa-file-export"></i> Producto</a></li>
+
+                  <li><a href="#" class="active"><i class="fa fa-layer-group"></i> Operaciones</a></li>
+                  <li><a href="#" class="active"><i class="fa fa-file-export"></i> Informes</a></li>
+              </ul>
+           </div>
+        </div>
+        <div id="con-form" class="con-form"></div>
+    </div>
+</body>
+
+</html>
