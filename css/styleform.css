@@ -17,7 +17,17 @@
     border-radius: 0px 0px 0px 0px;
     border-bottom: 3px solid #EA484E;
   }
-
+  .ventana-sesion h3 {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    background: #33687E;
+    padding: 10px 0px;
+    padding-left: 10px;
+    text-align:left;
+    border-radius: 0px 0px 0px 0px;
+    border-bottom: 3px solid #EA484E;
+  }
   .ventana-main{
     padding: 30px 30px 25px 30px;
     text-align: center;
@@ -33,4 +43,13 @@
     padding-left: 12px;
     padding-top: 5px;
     
+}
+.ventana-sesion{
+  position:relative;
+  width: 20%;
+  background: #fff;
+  margin: 0 auto;
+  margin-top: 60px;
+  border-radius: 0px;
+  
 }
