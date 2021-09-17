@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="css/styleform.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
     
@@ -13,16 +14,48 @@
 	 	     <h3>Registrar Productos</h3>
           <span class="icono"><i class="fa fa-window-close"></i></span>
 	     <div class="ventana-main">
-         <form>
-            <input type="text" value="Nombre" class="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}"/>
-            <input type="text" value="Precio"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Precio';}"/>
-            <input type="text" value="Existencias" class="lessgap"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Existencias';}"/>
-            <div class="botones">
-              <input  type="submit" value="Guardar" />
-              <input  type="submit" value="Eliminar" />
-              <input  type="submit" value="otro" />
-            </div>
-          </form>
+         
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputId" class="form-label">Id:</label>
+            <input type="number" class="form-control" id="inputId">
+          </div>
+          <div class="col-md-6">
+            <label for="inputStock" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="inputStock">
+          </div>
+          <div class="col-12">
+            <label for="inputNombre" class="form-label">Nombre Producto</label>
+            <input type="text" class="form-control" id="inputNombre" >
+          </div>
+          <div class="col-md-4">
+            <label for="inputPrecio" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="inputPrecio">
+          </div>
+          <div class="col-md-4">
+            <label for="inputCategoria" class="form-label">Categoria</label>
+            <select id="inputCategoria" class="form-select">
+            <option selected>Elegir Categoria</option>
+            <option value="8">Discos Duros</option>
+            <option value="4">Impresoras</option>
+            <option value="6">Laptops</option>
+            <option value="7">Memorias</option>
+            <option value="3">Monitores</option>
+            <option value="1">Mouse</option>
+            <option value="5">Tarjetas Madre</option>
+            <option value="2">Teclados</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="inputProveedor" class="form-label">Proveedor</label>
+            <input type="text" class="form-control" id="inputProveedor">
+          </div>
+          
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+         
 	    </div>
     </div>	
 
