@@ -5,23 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="css/styleform.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
     <div class="ventana">
         <h3>Registrar Proveedor</h3>
         <div class= "ventana-main">
-            <p><input type="text" name="id-prov"placeholder="Id"></p>
-            <p><input type="text" name="nombre-prov"placeholder="Nombre del proveedor"></p>
-            <p><input type="text" name="dirección-prov"placeholder="Dirección"></p>
-            <p><input type="text" name="ciudad-prov"placeholder="Ciudad"></p>
-            <p><input type="text" name="telefono-prov"placeholder="Teléfono"></p>
-            <p><input type="text" name="e-mail-prov"placeholder="E-mail"></p>
-            <p><input type="text" name="nombre-vendedor-prov"placeholder="Nombre del vendedor"></p>
-            <div class="botones">
-                <input type="submit" value="Guardar">
-                <input type="submit" value="Actualizar">
-                <input type="submit" value="Eliminar">
-            </div>
+            <form class="row g-3">
+                <div class="col-md-6">
+                  <label for="inputId" class="form-label">Id</label>
+                  <input type="number" class="form-control" id="inputId">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputNombreProv" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="inputNombreProv">
+                </div>
+                <div class="col-12">
+                  <label for="inputDireccionProv" class="form-label">Direccion</label>
+                  <input type="text" class="form-control" id="inputDireccionProv">
+                </div>
+                <div class="col-12">
+                  <label for="inputEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="inputEmail">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputTelefono" class="form-label">Telefono</label>
+                  <input type="number" class="form-control" id="inputTelefono">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputCiudad" class="form-label">Ciudad</label>
+                  <select id="inputCiudad" class="form-select">
+                    <option selected>Elegir ciudad</option>
+                    <option>...</option>
+                    <option value="1">Barranquilla</option>
+                    <option value="2">Bogota</option>
+                    <option value="3">Bucaramanga</option>
+                    <option value="4">Valledupar</option>
+                    <option value="5">Yopal</option>
+                  </select>
+                </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+              </form>
         </div>
     </div>
 
