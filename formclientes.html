@@ -5,29 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="css/styleform.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 <body>
     <div class="ventana">
         <h3> Registrar Cliente</h3>
-        <div class="ventana-main">
-            <p><input type="text" name="id-cliente" placeholder="Identificacion" autofocus></p>
-            <p><input type="text" name="nombre-clien" placeholder="Nombre Completo"></p>
-            <p><input type="text" name="direccion-clien" placeholder="Direccion"></p>
-            <p><input type="text" name="ciudad-clien" placeholder="Ciudad"></p>
-            <p><input type="text" name="telefono-clien" placeholder="Telefono"></p>
-            <p><input type="email" name="correo" multiple ></p>           
+        <div class="ventana-main">               
 
-            <div class="botones">
-                <input type="submit" value="Guardar">
-                <input type="submit" value="Actualizar">
-                <input type="submit" value="Eliminar"><br><br>
-                <input type="submit"  value="Enviar" />
-            </div>
-    
-            
+    <form class="row g-3">
+        <div class="col-md-6">
+          <label for="inputId class="form-label>Identificación</label>
+          <input type="number" class="form-control" id="inputId">
         </div>
-
+        <div class="col-md-6">
+          <label for="inputNombrecli" class="form-label">Nombre</label>
+          <input type="tex" class="form-control" id="inputNombrecli">
+        </div>
+        <div class="col-12">
+          <label for="inputAddresscli" class="form-label">Dirección</label>
+          <input type="text" class="form-control" id="inputAddresscli">
+        </div>
+        <div class="col-12">
+          <label for="inputEmailcli"class="form-label">EMail</label>
+          <input type="email" class="form-control" id="inputEmailcli">
+        </div>
+        <div class="col-md-6">
+          <label for="inputTelefonocli" class="form-label">Teléfono</label>
+          <input type="number" class="form-control" id="inputTelefonocli">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCiudadcli" class="form-label">Ciudad</label>
+          <select id="inputCiudadcli" class="form-select">
+            <option selected>Escojer Ciudad...</option>
+            <option value="1">Barranquilla</option>
+            <option value="2">Bogotá</option>
+            <option value="3">Bucaramanga</option>
+            <option value="4">Valledupar</option>
+            <option value="5">Yopal</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+     </div>
     </div>
-    
 </body>
 </html>
