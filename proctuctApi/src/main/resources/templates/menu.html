@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" th:href="@{/css/style.css}">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d2598eec4b.js" crossorigin="anonymous"></script>
+   
+    
+</head>
+
+<body>
+    <div class="barra-titulo"><i class="fa fa-file-invoice"></i> <samp>Sof-Inventario   </samp>  
+   </div> 
+    <div class="contenedor">
+        <div class="bar-menu">
+           <div class="barmenu-conte">
+              <ul>
+                  <li><a th:href="@{/menu}"><i class="fa fa-file-export"></i> Inicio</a></li>
+                  <li><a th:href="@{/menu/formproducto}"><i class="fa fa-file-export"></i> Productos</a></li>
+                  <li>    <a th:href="@{/menu/formprove}"><i class="fa fa-layer-group"></i> Proveedores</a></li>
+                  <li> <a th:href="@{/menu/formclientes}"><i class="fa fa-file-export"></i> Clientes</a></li>
+                  <li> <a th:href="@{/menu/formmovimientos}"><i class="fa fa-file-export"></i> Movimientos</a></li>
+                  <li><a href="#" class="active"><i class="fa fa-file-export"></i> Usuarios</a></li>
+              </ul>
+              <br>
+               <form th:action="@{/logout}" method="post">
+                 <input type="submit" value="Cerrar Sesion"/>
+               </form>
+           </div>
+        </div>
+        <div id="con-form" class="con-form">
+         <h6 th:inline="text">Hola [[${#httpServletRequest.remoteUser}]]!</h6>
+            
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+    
+       
+       
+        <h1><a th:href="@{/admin}"> admin</a> | <a th:href="@{/user}"> user</a></h1>
+        
+      

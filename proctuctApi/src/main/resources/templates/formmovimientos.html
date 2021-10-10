@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimientos</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/styleform.css}">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d2598eec4b.js" crossorigin="anonymous"></script>
+   
+    
+</head>
+
+<body>
+    <div class="barra-titulo"><i class="fa fa-file-invoice"></i> <samp>Sof-Inventario   </samp>  
+   </div> 
+    <div class="contenedor">
+        <div class="bar-menu">
+           <div class="barmenu-conte">
+              <ul>
+                  <li><a th:href="@{/menu}"><i class="fa fa-file-export"></i> Inicio</a></li>
+                  <li><a th:href="@{/menu/formproducto}"><i class="fa fa-file-export"></i> Productos</a></li>
+                  <li>    <a th:href="@{/menu/formprove}"><i class="fa fa-layer-group"></i> Proveedores</a></li>
+                  <li> <a th:href="@{/menu/formclientes}"><i class="fa fa-file-export"></i> Clientes</a></li>
+                  <li> <a th:href="@{/menu/formmovimientos}"><i class="fa fa-file-export"></i> Movimientos</a></li>
+                  <li><a href="#" class="active"><i class="fa fa-file-export"></i> Usuarios</a></li>
+              </ul>
+              <br>
+               <form th:action="@{/logout}" method="post">
+                 <input type="submit" value="Cerrar Sesion"/>
+               </form>
+           </div>
+        </div>
+        <div id="con-form" class="con-form">
+         <h6 th:inline="text">Hola [[${#httpServletRequest.remoteUser}]]!</h6>
+            <div class="ventana">
+        <h3>Movimientos</h3>
+       
+        <div class="ventana-main">
+            <form class="crud-form row g-3">
+                <div class="col-md-4">
+                    <label for="inputTipo" class="form-label">Tipo:</label>
+                    <select id="inputTipo" class="form-select" name="inputTipo" required>
+                        <option selected>Seleccionar</option>
+                        <option value="1">Entrada</option>
+                        <option value="2">Salida</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputFecha" class="form-label">Fecha:</label>
+                    <input type="date" class="form-control" id="inputFecha" name="inputFecha" required>
+                    <input type="hidden" class="form-control" id="id" name="id">
+                </div>
+
+                <div class="col-md-4">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputCedula" class="form-label">Cédula:</label>
+                    <input type="text" class="form-control" id="inputCedula" name="inputCedula" required>
+                </div>
+                
+                <div class="col-md-8">
+                    <label for="inputNombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="inputNombre" >
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputIdProducto" class="form-label">Producto:</label>
+                    <select id="inputIdProducto" class="form-select" name="idarti" required>
+                        <option selected>Elegir Producto</option>
+                        <option value="1">Producto 1</option>
+                        <option value="4">Producto 2</option>
+                        <option value="6">Producto 3</option>
+                    </select>
+                </div>
+
+                <div class="col-md-8">
+                    <label for="inputDesProducto" class="form-label">Descripción Producto:</label>
+                    <input type="text" class="form-control" id="inputDesProducto">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputCantidad" class="form-label">Cantidad:</label>
+                    <input type="number" class="form-control" id="inputCantidad" name="inputCantidad" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputPrecio" class="form-label">Precio Producto:</label>
+                    <input type="text" class="form-control" id="inputDesProducto" name="inputPrecio" required>
+                </div>
+                
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>   
+        </div>
+
+        <article>
+            <h2>Movimientos</h2>
+            <table class="crud-table table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th>Tipo</th>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Id Producto</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>  </tbody>
+            </table>
+        </article>
+
+        <template id="crud-template">
+            <tr>
+                <td class="id"></td>
+                <td class="fecha"></td>
+                <td class="tipo"></td>
+                <td class="cedula"></td>
+                <td class="nombre"></td>
+                <td class="idproducto"></td>
+                <td class="producto"></td>
+                <td class="cantidad"></td>
+                <td class="precio"></td>
+                
+                <td> <button class="edit .btn-primary">Editar</button>  </td>
+                <td> <button class="delete">Eliminar</button>    </td>
+            </tr> 
+        </template>
+    </div>	
+
+    <script>
+      const d= document,
+      $table= d.querySelector(".crud-table"),
+      $form= d.querySelector(".crud-form"),
+      $title= d.querySelector(".crud-title"),
+      $template= d.getElementById("crud-template").content,
+      $fragment= d.createDocumentFragment();
+
+      const getAll=async()=>{
+        try {
+         let res = await fetch("http://localhost:8080/movimientos"),
+         json = await res.json();
+
+         if(!res.ok) throw { status: res.status, statusText: res.statusText};
+         
+         json.forEach(el=>{
+             $template.querySelector(".id").textContent=el.id;
+             $template.querySelector(".fecha").textContent=el.mov_fecha;
+              $template.querySelector(".tipo").textContent=el.mov_tipo;
+             $template.querySelector(".cedula").textContent=el.mov_cli_cedula;
+             $template.querySelector(".nombre").textContent=el.mov_usu_id;
+              $template.querySelector(".idproducto").textContent=el.arti_id;
+             $template.querySelector(".cantidad").textContent=el.mov_cantidad;
+             $template.querySelector(".precio").textContent=el.mov_precio;
+
+             $template.querySelector(".edit").dataset.id=el.id;
+             $template.querySelector(".edit").dataset.mov_fecha=el.mov_fecha;
+             $template.querySelector(".edit").dataset.mov_cli_cedula=el.mov_cli_cedula;
+             $template.querySelector(".edit").dataset.mov_usu_id=el.mov_usu_id;
+             $template.querySelector(".edit").dataset.mov_cantidad=el.mov_cantidad;
+             $template.querySelector(".edit").dataset.mov_precio=el.mov_precio;
+             $template.querySelector(".edit").dataset.mov_artid=el.arti_id;
+              
+             $template.querySelector(".delete").dataset.id=el.id;
+
+             let $clone = d.importNode($template,true);
+             $fragment.appendChild($clone);
+
+             $table.querySelector("tbody").appendChild($fragment);
+         });
+
+        } catch (error) {
+            let message = err.statusText|| "ocurrio un error";
+            $table.insertAdjacentHTML("afterend",`<p><b>Errorr: ${err.status}: ${message}</b></p>`);
+        }  
+      }
+
+      d.addEventListener("DOMContentLoaded",getAll);
+
+    
+      d.addEventListener("submit", async e=>{
+        if(e.target===$form){
+          e.preventDefault();
+
+          if(!e.target.id.value){
+            //create POST 
+             try {
+                 let options={
+                     method: "POST",
+                     headers: {
+                      "Content-type":"application/json; charset=utf-8"
+                     },
+                     body: JSON.stringify({
+                      mov_fecha: e.target.inputFecha.value, 
+                      mov_cli_cedula: e.target.inputCedula.value,
+                      mov_usu_id: e.target.inputCedula.value, /* aqui debe ir el del usuario conectado*/
+                      mov_tipo: e.target.inputTipo.value,
+                      arti_id:e.target.idarti.value,
+                      mov_cantidad: e.target.inputCantidad.value,
+                      mov_precio: e.target.inputPrecio.value
+                     })
+                 },
+              res = await fetch("http://localhost:8080/movimientos", options),
+              json = await res.json();
+             
+              if(!res.ok) throw { status: res.status, statusText: res.statusText};
+              
+              location.reload();
+              
+             } catch (err) {
+              let message = err.statusText|| "Ocurrió un error";
+              $form.insertAdjacentHTML("afterend",`<p><b>Error: ${err.status}: ${message}</b></p>`);
+                 
+             }
+          }else{
+            // update PUT
+             try {
+                 let options={
+                     method: "PUT",
+                     headers: {
+                      "Content-type":"application/json; charset=utf-8"
+                     },
+                     body: JSON.stringify({
+	                  id:e.target.id.value,
+                      mov_fecha: e.target.inputFecha.value, 
+                      mov_cli_cedula: e.target.inputCedula.value,
+                      mov_usu_id: e.target.inputCedula.value, /* aqui debe ir el del usuario conectado*/
+                      mov_tipo: e.target.inputTipo.value,
+                      arti_id:e.target.idarti.value,
+                      mov_cantidad: e.target.prove_id.value,
+                      mov_precio: e.target.prove_id.value
+                      
+                     })
+                 },
+              res = await fetch("http://localhost:8080/movimientos", options),
+              json = await res.json();
+              
+              if(!res.ok) throw { status: res.status, statusText: res.statusText};
+
+              location.reload();
+
+             } catch (err) {
+              let message = err.statusText|| "Ocurrió un error";
+              $form.insertAdjacentHTML("afterend",`<p><b>Error: ${err.status}: ${message}</b></p>`);
+                 
+             }
+          }
+        }
+      });
+
+      d.addEventListener("click", async e=>{
+        if(e.target.matches(".edit")){
+         // $title.textContent="Editar Producto"  ;
+          $form.inputFecha.value= e.target.dataset.mov_fecha;
+          $form.inputCedula.value= e.target.dataset.mov_cli_cedula;
+          $form.inputTipo.value= e.target.dataset.mov_usu_id;
+          $form.inputCantidad.value= e.target.dataset.mov_cantidad;
+          $form.inputPrecio.value= e.target.dataset.mov_precio;
+         }
+         if(e.target.matches(".delete")){
+          let isDelete= confirm(`¿Estás seguro de eliminar el id: ${e.target.dataset.id} ?`);
+          
+          if(isDelete){
+             //Delete
+          try {
+                   let options={
+                       method: "DELETE",
+                       headers: {
+                        "Content-type":"application/json; charset=utf-8"
+                       }
+                   },
+                res = await fetch(`http://localhost:8080/movimientos/${e.target.dataset.id}`, options),
+                json = await res.json();
+                
+              location.reload();
+              
+             // if(!res.ok) throw { status: res.status, statusText: res.statusText};
+              //console.log(res.status);
+
+              
+ 
+              } catch (err) {
+              let message = err.statusText|| "Ocurrió un error";
+             // alert(`Error: ${err.status}: ${message}`);
+                   
+              } 
+
+           }
+          }
+          
+      })
+    </script>	    
+        </div>
+    </div>
+</body>
+
+</html>
+
+
